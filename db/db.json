@@ -1,6 +1,21 @@
-[
+[{
+        "title": "Test Title",
+        "text": "Test text",
+        "id": 1
+    },
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Test Note 2",
+        "text": "Test text 2",
+        "id": 2
+    },
+    {
+        "title": "Insomnia Test POST Note",
+        "body": "I hope this worked or I'm going to have to debug it!",
+        "id": 3
+    },
+    {
+        "title": "Take things slow",
+        "body": "You'll figure it out, just keep putting in work and asking questions.",
+        "id": 4
     }
 ]
