@@ -16,11 +16,34 @@ app.listen(PORT, () => {
     console.log(`App now listening on port ${PORT}`);
 })
 
-
-
 // ========== ROUTES TO BE REFACTORED LATER ==========
+/* 
+    Routes Needed:
+        1. /api
+        2. /api/notes
+        3. /notes
+        4. *
+*/
 
 app.get('/api', (req, res) => {
+    console.log('GET request made!');
+    console.log(`req.body:\n${req.body}`);
+    res.send('Nice!');
+});
+
+app.get('/api/notes', (req, res) => {
+    console.log('GET request made!');
+    console.log(`req.body:\n${req.body}`);
+    res.send('Nice!');
+});
+
+app.get('/notes', (req, res) => {
+    console.log('GET request made!');
+    console.log(`req.body:\n${req.body}`);
+    res.send('Nice!');
+});
+
+app.get('/*', (req, res) => {
     console.log('GET request made!');
     console.log(`req.body:\n${req.body}`);
     res.send('Nice!');
