@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const db = require('../../db/db');
-const { createNewNote, validateNote } = require('../../lib/notes');
+const { createNewNote, validateNote, removeNote } = require('../../lib/notes');
 
 router.get('/notes', (req, res) => {
     console.log('GET request made!');
@@ -14,6 +14,8 @@ router.post('/notes', (req, res) => {
     const noteId = db.length + 1;
     req.body.id = noteId;
 
+    console.log(req.body);
+
     // Validate note
     if (!validateNote(req.body)) {
         res.status(400).send("Note was not constructed properly");
@@ -24,5 +26,20 @@ router.post('/notes', (req, res) => {
         res.json(note);
     }
 });
+
+router.delete('/notes/:id', (req, res) => {
+    console.log('DELETE request made!');
+
+    const removedNoteId = removeNote(req.params.id, db);
+    res.json(removedNoteId);
+    
+    // if (db.length >= req.params.id) {
+    //     const removedNoteId = removeNote(req.params.id, db);
+    //     res.json(removedNoteId);
+    // } else {
+    //     res.status(400).json({message: "No note found with that ID."});
+    // }
+    
+})
 
 module.exports = router;
